@@ -179,8 +179,6 @@ final class DoctrineOrmAnnotationGenerator extends AbstractAnnotationGenerator
                     } else {
                         $annotations[] = sprintf('@ORM\ManyToMany(targetEntity="%s")', $this->getRelationName($field['range']));
                     }
-                    $name = $field['relationTableName'] ? sprintf('name="%s", ', $field['relationTableName']) : '';
-                    $annotations[] = '@ORM\JoinTable('.$name.'inverseJoinColumns={@ORM\JoinColumn(unique=true)})';
                     break;
                 case CardinalitiesExtractor::CARDINALITY_1_N:
                     if ($field['mappedBy'] ?? false) {
